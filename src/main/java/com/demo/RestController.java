@@ -7,16 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RestController {
 
     @Autowired
-    private Greeter greeter1;
+    private Greeter greeter;
 
     @Autowired
-    private FriendlyGreeter friendlyGreeter1;
-
-    @Autowired
-    private Greeter greeter2;
-
-    @Autowired
-    private FriendlyGreeter friendlyGreeter2;
+    private FriendlyGreeter friendlyGreeter;
 
     @Autowired
     private GreetInterface greetAgain;
@@ -24,24 +18,14 @@ public class RestController {
     @Autowired(required = false)
     private NotActuallyABean notABean;
 
-    @RequestMapping("/hello1")
-    public String hello1() {
-        return greeter1.greet();
+    @RequestMapping("/hello")
+    public String hello() {
+        return greeter.greet();
     }
 
-    @RequestMapping("/hellofriendly1")
-    public String helloFriendly1() {
-        return friendlyGreeter1.greet();
-    }
-
-    @RequestMapping("/hello2")
-    public String hello2() {
-        return greeter2.greet();
-    }
-
-    @RequestMapping("/hellofriendly2")
-    public String helloFriendly2() {
-        return friendlyGreeter2.greet();
+    @RequestMapping("/hellofriendly")
+    public String helloFriendly() {
+        return friendlyGreeter.greet();
     }
 
     @RequestMapping("/helloagain")
